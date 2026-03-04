@@ -2,28 +2,47 @@ export async function POST(req: Request) {
   try {
     const { code } = await req.json();
 
-    let summary = "AI Summary:\n";
+    const apiKey = process.env.OPENAI_API_KEY;
 
-    if (code.includes("login")) {
-      summary +=
-        "You are implementing a login authentication function. Next step: add password hashing and database validation.";
-    } else if (code.includes("fetch")) {
-      summary +=
-        "You are fetching data from an API. Next step: add error handling and loading states.";
-    } else if (code.includes("sort")) {
-      summary +=
-        "You are implementing a sorting algorithm. Next step: optimize the algorithm or test with larger arrays.";
-    } else {
-      summary +=
-        "You are writing application logic. Next step: continue building the feature and add proper validation.";
+    if (!apiKey) {
+      return Response.json({
+        summary: "API key not configured.",
+      });
     }
 
-    return Response.json({
-      summary: summary,
+    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify({
+        model: "gpt-4o-mini",
+        messages: [
+          {
+            role: "system",
+            content:
+              "You explain source code clearly. Summarize what the code does in 3-4 simple sentences. Focus on describing the behavior and logic of the program. Do not suggest improvements.",
+          },
+          {
+            role: "user",
+            content: code,
+          },
+        ],
+      }),
     });
+
+    const data = await response.json();
+
+    const summary =
+      data?.choices?.[0]?.message?.content ||
+      "Unable to generate summary.";
+
+    return Response.json({ summary });
+
   } catch (error) {
     return Response.json({
-      summary: "AI could not analyze the code.",
+      summary: "Error analyzing the code.",
     });
   }
 }
