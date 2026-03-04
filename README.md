@@ -1,136 +1,36 @@
-### **Hackathon Theme:**
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-##### 
+## Getting Started
 
-#### AI Super Productivity – Build for Focus \& Flow
+First, run the development server:
 
-#### Category: The Interrupted Developer
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-### 
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-#### **FlowGuard AI**
+## Learn More
 
-#### **Cognitive Continuity Engine for Developers**
+To learn more about Next.js, take a look at the following resources:
 
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-#### **Overview:**
+## Deploy on Vercel
 
-##### 
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-##### FlowGuard AI is a productivity tool designed to help developers stay focused in interruption-heavy environments.
-
-##### 
-
-##### Developers often switch between coding, meetings, messages, and debugging. These interruptions break their flow and make it hard to resume work quickly.
-
-##### 
-
-##### FlowGuard saves the working context and restores it when the developer returns.
-
-##### 
-
-#### **Problem Statement:**
-
-##### 
-
-##### Frequent interruptions cause developers to lose mental context.
-
-##### 
-
-##### **When they come back to work, they must:**
-
-1. ##### Remember what they were building
-2. ##### Re-check unfinished code
-3. ##### Re-open related files
-4. ##### Recall why certain decisions were made
-
-##### 
-
-##### This wastes time and reduces productivity.
-
-##### 
-
-#### **Solution Overview:**
-
-##### 
-
-##### FlowGuard AI works as a background assistant that:
-
-##### 
-
-* ##### Tracks active files and coding activity
-* ##### Captures session context
-* ##### Generates an AI-powered summary when work pauses
-* ##### Restores that summary when the developer returns
-* ##### Suggests next steps to continue work
-
-##### 
-
-##### This reduces context recovery time and helps developers return to deep work faster.
-
-##### 
-
-#### **Architecture:**
-
-##### 
-
-##### FlowGuard AI follows a modular architecture built using Trae AI during the hackathon.
-
-##### 
-
-#### **1. VS Code Extension Layer:**
-
-* ##### Built using Trae AI-generated boilerplate
-* ##### Tracks active files, edits, and navigation
-* ##### Detects inactivity or manual session pause
-* ##### Sends structured session data to backend API
-
-##### 
-
-#### **2. Backend Layer:**
-
-* ##### Developed using Trae AI assistance
-* ##### Receives session context from extension
-* ##### Structures and stores session data
-* ##### Sends formatted context to AI engine for summarization
-
-##### 
-
-#### **3. Trae AI / LLM Integration Layer:**
-
-* ##### Uses Trae Pro AI capabilities
-* ##### Generates concise session summaries
-* ##### Identifies incomplete logic
-* ##### Suggests probable next steps
-* ##### Returns structured output to backend
-
-##### 
-
-#### **4. Storage Layer:**
-
-* ##### Stores session snapshots and AI-generated summaries
-* ##### Maintains session history for restoration
-
-##### 
-
-#### **5. Flow Restoration Dashboard:**
-
-* ##### Simple React-based interface
-* ##### Displays previous session summary
-* ##### Highlights unfinished work
-* ##### Guides the developer to resume quickly
-
-##### 
-
-#### **Tech Stack (Planned):**
-
-##### 
-
-1. ##### VS Code API
-2. ##### Node.js / Python
-3. ##### LLM-based AI summarization
-4. ##### React (for dashboard UI)
-5. ##### Lightweight database
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
